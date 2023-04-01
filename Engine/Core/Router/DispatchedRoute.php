@@ -17,7 +17,7 @@ class DispatchedRoute
     return $this->controller;
   }
 
-  public function getParameters(): mixed
+  public function getParameters()
   {
     return $this->parameters;
   }

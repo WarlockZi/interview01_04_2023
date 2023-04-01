@@ -10,7 +10,8 @@
         "psr-4": {
             "Engine\\":"engine",
             "Engine\\DI\\":"engine/DI",
-            "Engine\\Core\\": "engine/Core"
+            "Engine\\Core\\": "engine/Core",
+            "App\\Controller\\" : "app/Controller"
         }
     },
     "require": {}
