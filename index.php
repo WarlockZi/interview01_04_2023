@@ -1,5 +1,7 @@
 <?php
-define('ROOT', __DIR__);
+
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+
 require __DIR__ . '/engine/bootstrap.php';
 
 

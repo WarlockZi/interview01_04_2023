@@ -3,11 +3,19 @@
 namespace App\Controller;
 
 
+use Engine\Helper\Common;
+
 class HomeController extends AppController
 {
 	public function index()
 	{
-		$data = ['name'=>'s'];
+		$button = Common::getFileContent('button');
+		$header = Common::getFileContent('header',compact('button'));
+		$content = Common::getFileContent('index');
+		$data = [
+			'header'=>$header,
+			'content'=>$content,
+			];
 		$this->view->render('index',$data);;
 	}
 

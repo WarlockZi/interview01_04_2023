@@ -1,4 +1,6 @@
+import './index.scss';
+
 let b = document.querySelector('body')
-b.style.backgroundColor = 'blue'
+// b.style.backgroundColor = 'grey'
 
 

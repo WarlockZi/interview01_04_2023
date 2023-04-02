@@ -17,7 +17,7 @@ class Connection
 			'host' => 'localhost',
 			'db_name' => 'test_interview',
 			'user' => 'root',
-			'password' => '',
+			'password' => 'root',
 			'charset' => 'utf8',
 		];
 

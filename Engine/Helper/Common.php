@@ -14,6 +14,16 @@ class Common
 		return $_SERVER['REQUEST_METHOD'];
 	}
 
+	public static function getFileContent($file = 'index', $vars = [])
+	{
+		$contentPath = ROOT . '/Content/Theme/Default/';
+		$file = self::platformSlashes($contentPath . $file . '.php');
+		extract($vars);
+		ob_start();
+		require $file;
+		return ob_get_clean();
+	}
+
 	public static function getPathUrl()
 	{
 		$pathUrl = $_SERVER['REQUEST_URI'];
