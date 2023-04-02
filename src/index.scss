@@ -1,14 +1,40 @@
+@import './vars';
+@import './login';
+@import './header';
+
 * {
-    margin: 0;
-    padding: 12px;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: $color-a;
+  text-decoration: none;
 }
 
 body {
-    background-color:#ccc;
-    background-color: firebrick;
+  //background-color: $color-body;
+  font-family: sans-serif, Arial;
 }
 
-.container {
-
+h1 {
+  color: $color-main;
 }
+
+html {
+  background: url('./storage/pics/forest.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.container{
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  max-width: 600px;
+  margin: $m-2 auto;
+}
+
+
+

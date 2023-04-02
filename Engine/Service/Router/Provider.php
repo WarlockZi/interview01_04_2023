@@ -14,8 +14,8 @@ class Provider extends AbstractProvider
 
 	public function init()
 	{
-	  $router = new Router('http://boilerplate');
-	  $this->di->set($this->serviceName,$router);
+		$router = new Router('http://boilerplate');
+		$this->di->set($this->serviceName, $router);
 
 	}
 }

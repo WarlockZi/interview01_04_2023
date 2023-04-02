@@ -1,0 +1,21 @@
+$p-1: 4px;
+$p-2: 8px;
+
+$m-1: 4px;
+$m-2: 8px;
+$m-3: 12px;
+$m-4: 16px;
+$m-5: 20px;
+
+$color-main: rgba(107, 255, 3, 0.3);
+$color-body: #ededed;
+$color-a: #3d3d3d;
+
+@mixin button(){
+  background-color: $color-main;
+  border: 1px solid $color-main;
+  color: #ffffff;
+  border-radius: 6px;
+  padding: $p-2;
+  cursor: pointer;
+}

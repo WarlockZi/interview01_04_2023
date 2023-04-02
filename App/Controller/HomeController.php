@@ -9,9 +9,11 @@ class HomeController extends AppController
 {
 	public function index()
 	{
-		$button = Common::getFileContent('button');
-		$header = Common::getFileContent('header',compact('button'));
-		$content = Common::getFileContent('index');
+		$auth = $this->di->get('auth');
+//		if ($this->di-)
+		$buttons = Common::getFileContent('buttons',compact($auth));
+		$header = Common::getFileContent('header',compact('buttons'));
+		$content = Common::getFileContent('content');
 		$data = [
 			'header'=>$header,
 			'content'=>$content,

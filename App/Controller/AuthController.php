@@ -9,8 +9,20 @@ class AuthController extends AppController
 {
 	public function login()
 	{
+		if (isset($_POST['email'])){
+			$email = $_POST['email'];
+			$password= $_POST['password'];
+
+
+
+		}
+		$buttons= Common::getFileContent('buttons');
+		$header = Common::getFileContent('header',compact('buttons'));
 		$content = Common::getFileContent('login');
-		$data = ['content'=>'s'];
+		$data = [
+			'header'=>$header,
+			'content'=>$content,
+		];
 		$this->view->render('index',$data);;
 	}
 

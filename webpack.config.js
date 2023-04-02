@@ -12,7 +12,11 @@ module.exports = {
   plugins: [new MiniCssExtractPlugin()],
 
   // target: 'web',
+
   devServer: {
+    client: {
+      overlay: false,
+    },
     allowedHosts: "all",
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -30,10 +34,6 @@ module.exports = {
     watchFiles: ['./src/**/*'],
   },
 
-  // optimization: {
-  //   runtimeChunk: 'single',
-  // },
-
   module: {
     rules: [
       {
@@ -43,6 +43,11 @@ module.exports = {
           'css-loader',
           'sass-loader',
         ]
+      },
+      {
+        test: /\.(jpg|png|svg|gif)$/,
+        type: 'asset/resource',
+
       },
     ],
   },

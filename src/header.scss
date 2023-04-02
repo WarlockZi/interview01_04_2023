@@ -1,0 +1,20 @@
+@import './vars';
+
+header {
+  display: flex;
+  justify-content: end;
+  user-select: none;
+
+  .user-menu {
+
+    button {
+      @include button;
+
+      a {
+        color: #ffffff;
+      }
+
+    }
+  }
+
+}
