@@ -12,7 +12,7 @@
 		<input type="email" name="email" placeholder="E-mail">
 		<input type="password" name="password" placeholder="Password">
 		<div id="error"></div>
-		<button type="submit">
+		<button type="submit" data-action="login">
 			Войти
 		</button>
 	</form>

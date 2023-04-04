@@ -4,47 +4,88 @@
 namespace Engine;
 
 
-use Engine\DI\DI;
+use Engine\Auth\Auth;
+use Engine\Core\Database\Connection;
 
- class Model
+
+class Model
 {
-  protected $di;
-  protected $db;
-  protected $config;
+	protected $di;
+	protected $db;
+	protected $table;
 
-  public $queryBuilder;
+	public function __construct()
+	{
+		$this->db = new Connection();
+	}
 
-  public static function __callStatic($method, $parameters)
-  {
-    return (new static)->$method(...$parameters);
-  }
+	protected function exists($email, $password)
+	{
+		$instance = new self();
+		$password = Auth::encriptPassword($password);
+		$sql = "SELECT * FROM `users` WHERE `email`=? AND `password`=?";
+		$res = $instance->db->query($sql, [$email, $password]);
+		return $res ? $res[0] : null;
+	}
 
-  public static function __call($method, $parameters)
-  {
-    return (new static)->$method(...$parameters);
-  }
+	public static function login($email, $password)
+	{
+		$instance = new self();
+		$user = $instance->exists($email, $password);
 
-  public function __construct(DI $di)
-  {
-    $this->di = $di;
-    $this->db = $this->di->get('db');
-    $this->config = $this->di->get('config');
-//		$this->queryBuilder = new QueryBuilder();
+		if ($user) {
+			return $user;
+		}
 
-  }
-  public function find($email,$password){
-    return $user = 1;
-  }
+	}
 
-  public static function where($column, $value)
-  {
+	public static function register($email, $password)
+	{
+		$instance = new self();
+		$user = $instance->exists($email, $password);
+		if ($user) {
+			exit(json_encode(['Пользователь с таким email уже зарегистрирован']));
+		}
+		$sql = "INSERT INTO `users` (`email`,`password`) VALUES (?,?)";
+		$password = Auth::encriptPassword($password);
+		$res = $instance->db->execute($sql, [$email, $password]);
+		$id = $instance->db->lastId();
+		if ($id) {
+			$insertedUser = self::find($id);
+		}
+		return $res ? $insertedUser : false;
+	}
 
-  }
+	public static function find($id)
+	{
+		$instance = new static();
+		$table = $instance->getTable();
+		$sql = "SELECT * FROM `{$instance->table}` WHERE `id`=?";
+		return $instance->db->query($sql, [$id])[0];
+	}
 
-  public function get()
-  {
+	public static function del($id)
+	{
+		$instance = new static();
+		$table = $instance->getTable();
+		$sql = "DELETE FROM `{$table}` WHERE `id`=?";
+		return $instance->db->execute($sql, [$id]);
+	}
 
-  }
+	public static function create($arr)
+	{
+		$instance = new static();
+		$table = $instance->getTable();
+		$sql = "INSERT INTO `{$table}` (`todo`,`user_id`) VALUES (?,?)";
+		$instance->db->execute($sql, $arr);
+		$id = $instance->db->lastId();
+		return $id;
 
+	}
+
+	public function getTable()
+	{
+		return $this->table;
+	}
 
 }

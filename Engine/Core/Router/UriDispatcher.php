@@ -6,11 +6,15 @@ class UriDispatcher
 {
 	private $methods = [
 		'GET',
-		'POST'
+		'POST',
+		'DELETE',
+		'PUT',
 	];
 	private $routes = [
 		'GET' => [],
 		'POST' => [],
+		'DELETE'=>[],
+		'PUT'=>[],
 	];
 
 	private $patterns = [

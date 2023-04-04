@@ -12,22 +12,23 @@ class Header
   public function __construct(Auth $auth)
   {
     $this->user = $auth->user();
-//    $header = $this->getHeader();
-//    return $header;
   }
 
-  public static function make($type,$auth){
+  public function getUser(){
+  	return $this->user;
+	}
+
+  public static function make($type, $auth){
     $instance = new self($auth);
     if ($type==='guest'){
-      return $instance->getGuestHeader();
+      return $instance->getGuestHeader($instance->getUser());
     }elseif ($type==='user'){
-      return $instance->getUserHeader();
+      return $instance->getUserHeader($instance->getUser());
     }
   }
 
-  public function getGuestHeader()
+  public function getGuestHeader($user)
   {
-    $user = $this->user;
     $buttons = Common::getFileContent('header/buttons', compact('user'));
     $header = Common::getFileContent('header/_header', compact('buttons'));
     return $header;

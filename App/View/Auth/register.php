@@ -8,8 +8,8 @@
 	<form action="/auth/register" method="post">
 		<input type="email" name="email" placeholder="E-mail">
 		<input type="password" name="password" placeholder="Password">
-		<p id="error"></p>>
-		<button type="submit">
+		<p id="error"></p>
+		<button type="submit" data-action="register">
 			Зарегистрироваться
 		</button>
 	</form>

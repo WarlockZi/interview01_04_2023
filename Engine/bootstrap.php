@@ -6,8 +6,8 @@ use Engine\App;
 use Engine\DI\DI;
 
 try {
+
   $di = new DI();
-  $di->set('user', 'test');
 
   $services = require __DIR__ . '/Config/Service.php';
 

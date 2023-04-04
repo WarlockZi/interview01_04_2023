@@ -11,9 +11,9 @@ const validate = {
     return match??null
   },
   password: function (string) {
-    let minLength = 8
+    let minLength = 6
     let upperCase = false
-    let lowerCase = true
+    let lowerCase = false
     let numbers = true
     let errors = []
     // debugger
