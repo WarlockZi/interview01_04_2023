@@ -1,4 +1,4 @@
-
+@import "./vars";
 img {
   display: block;
   margin: auto;
@@ -37,7 +37,7 @@ form {
     @include button;
     display: flex;
     width: 80%;
-    margin: 0 auto;
+    margin: 40px auto;
     justify-content: center;
     font-size: 1rem;
   }
@@ -51,8 +51,8 @@ form {
   right: 0;
   bottom: 0;
   margin: auto;
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border-radius: 5px;
   background: rgba(3, 3, 3, 0.25);
   box-shadow: 1px 1px 50px #000;
@@ -62,8 +62,8 @@ form {
   overflow: hidden;
 
   &.show {
-    width: 260px;
-    height: 260px;
+    width: 300px;
+    height: 320px;
   }
 
   .close-btn {
@@ -92,7 +92,7 @@ form {
   h1 {
     font-family: 'Open Sans Condensed', sans-serif;
     position: relative;
-    margin-top: 0px;
+    margin: 20px 0;
     text-align: center;
     font-size: 40px;
     color: #ddd;
@@ -124,6 +124,18 @@ form {
     outline: none;
     box-shadow: 3px 3px 10px #333;
     background: rgba(3, 3, 3, .18);
+  }
+
+  #error {
+    display: none;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    background: $color-error;
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+
   }
 
   :-ms-input-placeholder {
