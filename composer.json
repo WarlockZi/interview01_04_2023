@@ -11,7 +11,9 @@
             "Engine\\":"engine",
             "Engine\\DI\\":"engine/DI",
             "Engine\\Core\\": "engine/Core",
-            "App\\Controller\\" : "app/Controller"
+            "App\\Controller\\" : "App/Controller",
+            "App\\View\\" : "App/View",
+            "App\\Model\\" : "App/Model"
         }
     },
     "require": {}

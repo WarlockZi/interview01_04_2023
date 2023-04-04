@@ -4,18 +4,20 @@
 namespace Engine\Core\Template;
 
 
+use App\View\Header\Header;
+use Engine\DI\DI;
 use Engine\Helper\Common;
 use http\Exception\InvalidArgumentException;
 
 class View
 {
-	public function __construct()
+	public function __construct(DI $di)
 	{
 	}
 
 	public function render($template, $vars = [])
 	{
-		$templatePath = Common::platformSlashes(ROOT . "/Content/Theme/Default/{$template}.php");
+		$templatePath = Common::platformSlashes(ROOT . "/Content/Layout/{$template}.php");
 		if (!is_file($templatePath)) {
 			throw new InvalidArgumentException(sprintf('Template"%s" not found in %s', $template, $templatePath));
 		}
@@ -29,7 +31,5 @@ class View
 			ob_end_clean();
 			throw $e;
 		}
-
 	}
-
 }

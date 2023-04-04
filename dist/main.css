@@ -1,1 +1,181 @@
-*{margin:0;padding:12px;box-sizing:border-box}body{background-color:#ccc}
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*********************************************************************************************************/
+img {
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: auto;
+}
+
+#login-button {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 30px;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(3, 3, 3, 0.8);
+  overflow: hidden;
+  opacity: 0.4;
+  box-shadow: 10px 10px 30px #000;
+  transition: all 1s;
+}
+#login-button.hide {
+  width: 0;
+  height: 0;
+  padding: 0;
+}
+
+form button {
+  background-color: rgba(107, 255, 3, 0.3);
+  border: 1px solid rgba(107, 255, 3, 0.3);
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+/* Login container */
+#container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 0px;
+  height: 0px;
+  border-radius: 5px;
+  background: rgba(3, 3, 3, 0.25);
+  box-shadow: 1px 1px 50px #000;
+  display: flex;
+  flex-direction: column;
+  transition: all 1s;
+  overflow: hidden;
+  /* Heading */
+  /* Inputs */
+}
+#container.show {
+  width: 260px;
+  height: 260px;
+}
+#container .close-btn {
+  position: absolute;
+  cursor: pointer;
+  font-family: "Open Sans Condensed", sans-serif;
+  line-height: 18px;
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  border-radius: 10px;
+  opacity: 0.2;
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container .close-btn:hover {
+  opacity: 0.5;
+}
+#container h1 {
+  font-family: "Open Sans Condensed", sans-serif;
+  position: relative;
+  margin-top: 0px;
+  text-align: center;
+  font-size: 40px;
+  color: #ddd;
+  text-shadow: 3px 3px 10px #000;
+}
+#container a,
+#container input {
+  font-family: "Open Sans Condensed", sans-serif;
+  text-decoration: none;
+  position: relative;
+  width: 80%;
+  display: block;
+  margin: 9px auto;
+  font-size: 17px;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(3, 3, 3, 0.1);
+  -webkit-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+#container input:focus {
+  outline: none;
+  box-shadow: 3px 3px 10px #333;
+  background: rgba(3, 3, 3, 0.18);
+}
+#container :-ms-input-placeholder {
+  color: #333;
+}
+#container button:hover {
+  opacity: 0.7;
+}
+
+header {
+  display: flex;
+  justify-content: end;
+  user-select: none;
+}
+header .user-menu button {
+  background-color: rgba(107, 255, 3, 0.3);
+  border: 1px solid rgba(107, 255, 3, 0.3);
+  color: #ffffff;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+}
+header .user-menu button a {
+  color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: #3d3d3d;
+  text-decoration: none;
+}
+
+body {
+  font-family: sans-serif, Arial;
+}
+
+h1 {
+  color: rgba(107, 255, 3, 0.3);
+}
+
+html {
+  background: url(6aa2ff0527b5db807319.jpg) no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 8px auto;
+}

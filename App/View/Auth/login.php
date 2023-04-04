@@ -3,19 +3,21 @@
 	</img>
 </div>
 <div id="container">
-	<h1>Log In</h1>
+	<h1>Вход</h1>
 	<span class="close-btn">
     <img src="https://cdn4.iconfinder.com/data/icons/miu/22/circle_close_delete_-128.png"></img>
   </span>
 
 	<form action="/auth/login" method="post">
 		<input type="email" name="email" placeholder="E-mail">
-		<input type="password" name="pass" placeholder="Password">
+		<input type="password" name="password" placeholder="Password">
+		<div id="error"></div>
 		<button type="submit">
 			Войти
 		</button>
 	</form>
 </div>
+
 
 
 

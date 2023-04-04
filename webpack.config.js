@@ -28,7 +28,7 @@ module.exports = {
       directory: './dist',
     },
     // disableHostCheck: true,
-    port: 4000,
+    port: 3000,
     compress: true,
     hot: true,
     watchFiles: ['./src/**/*'],

@@ -14,9 +14,10 @@ class Common
 		return $_SERVER['REQUEST_METHOD'];
 	}
 
+
 	public static function getFileContent($file = 'index', $vars = [])
 	{
-		$contentPath = ROOT . '/Content/Theme/Default/';
+		$contentPath = ROOT . '/App/View/';
 		$file = self::platformSlashes($contentPath . $file . '.php');
 		extract($vars);
 		ob_start();
