@@ -44,7 +44,7 @@ export default function auth() {
 
       let res = await ajaxDecorator(`/auth/${action}`, data)
       if (res[0] === 'ok') {
-        window.location.href  = '/task'
+        window.location.href  = '/tasks'
       } else {
         renderErrors(res, this)
       }

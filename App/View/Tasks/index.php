@@ -1,7 +1,10 @@
 <div class="task-wrap">
 
 	<div class="new-task">
+		<input type="checkbox">
+		<input type="date">
 		<input type="text">
+
 		<button>Добавить</button>
 	</div>
 

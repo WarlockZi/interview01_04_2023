@@ -28,9 +28,12 @@ class AuthController extends AppController
 
 		$header = Header::make('guest', $this->di->get('auth'));
 		$content = Common::getFileContent('Auth/login');
+
 		$data = [
 			'header' => $header,
 			'content' => $content,
+			'js' => $js,
+			'css' => $css,
 		];
 		$this->view->render('index', $data);
 	}

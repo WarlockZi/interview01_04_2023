@@ -3,33 +3,35 @@
 .task-wrap {
 
   @include transparent_form;
-  width: 380px;
+  width: 580px;
   height: initial;
-  margin: $m-5 auto;
+  margin: 50px auto;
 
-  .tasks{
+  .tasks {
 
-    .row{
+    .row {
       display: flex;
       color: #ffffff;
-      padding: 4px;
+      padding: 5px 20px;
 
-      .todo{
+      .todo {
         display: flex;
         flex: 1 0 auto;
         align-items: center;
         padding: 5px;
       }
-      .buttons{
+
+      .buttons {
         user-select: none;
         display: flex;
         justify-content: space-between;
 
-        .del{
+        .del {
           @include button;
           background-color: $color-error;
         }
-        .edit{
+
+        .edit {
           @include button;
         }
       }
@@ -43,20 +45,31 @@
 
     input {
       @include input;
-      width: 70%;
       margin-right: 5px;
       margin-left: 10px;
+
+      &[type='checkbox'] {
+        align-self: center;
+        height: 40%;
+        width: 77px;
+      }
+
+      &[type='date'] {
+        align-self: center;
+        width: 240px;
+      }
     }
 
-    button{
+    button {
       @include close_button;
       position: relative;
       top: 0;
       right: 0;
       width: initial;
-      height: initial;
       padding: 15px;
       margin: 10px;
+      display: flex;
+      align-items: center;
     }
   }
 }

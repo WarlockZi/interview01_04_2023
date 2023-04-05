@@ -20,7 +20,7 @@ class Task extends Model
 		$instance = new self();
 		$user_id = Auth::getUserId();
 
-		$sql = "SELECT * FROM `tasks` WHERE `user_id`=?";
+		$sql = "SELECT * FROM `tasks` WHERE `user_id`=? ORDER BY `date` ASC";
 		$res = $instance->db->query($sql, [$user_id]);
 		return $res;
 	}

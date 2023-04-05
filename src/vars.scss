@@ -65,6 +65,8 @@ $color-a: #3d3d3d;
   text-decoration: none;
   position: relative;
   width: 80%;
+  height: 29px;
+  align-self: center;
   display: block;
   margin: 9px auto;
   font-size: 17px;
@@ -81,3 +83,4 @@ $color-a: #3d3d3d;
     background: rgba(3, 3, 3, .18);
   }
 }
+
