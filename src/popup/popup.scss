@@ -1,0 +1,42 @@
+@import "../vars";
+
+.popup {
+  @include transparent_form;
+  width: clamp(200px, 50%, 600px);
+  height: clamp(300px, 50%, 600px);
+  background: rgb(255 255 255 / 35%);
+
+  .close {
+    @include close_button;
+    background: black;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    filter: opacity(1);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+    input[type="text"] {
+      @include input;
+    }
+
+    input[type="date"] {
+      padding: 5px;
+    }
+
+  }
+
+  button {
+    @include button;
+    width: 200px;
+    align-self: center;
+    margin: 20px 0;
+  }
+;
+
+}

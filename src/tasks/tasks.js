@@ -1,5 +1,8 @@
 import './tasks.scss'
-import ajaxDecorator from './ajax'
+import ajaxDecorator from '../ajax'
+import createEl from '../createEl'
+import popup from "../popup/popup";
+
 
 export default function tasks() {
   let taskWrap = document.querySelector('.task-wrap')
@@ -16,7 +19,6 @@ export default function tasks() {
     taskWrap.addEventListener('click', function ({target}) {
       if (target.classList.contains('del')) {
         taskDelete(target)
-
       } else if (target.classList.contains('edit')) {
         taskEdit(target)
       } else if (target === context.newTaskBtn) {
@@ -32,12 +34,12 @@ export default function tasks() {
     let data = {todo}
     let res = await ajaxDecorator('/tasks', data, "POST")
     if (res[0] === 'ok') {
-      renderTask(todo, res[1], this.tasks)
+      taskRender(todo, res[1], this.tasks)
       this.newTaskInput.value = ''
     }
   }
 
-  function renderTask(todo, id, tasks) {
+  function taskRender(todo, id, tasks) {
 
     let row = createEl('div', 'row', id)
 
@@ -60,15 +62,6 @@ export default function tasks() {
     tasks.append(row)
   }
 
-  function createEl(tag, className = null, id, text = null, type = null, checked = null) {
-    let el = document.createElement(tag)
-    if (className) el.classList.add(className)
-    if (id) el.id = id
-    if (text) el.innerText = text
-    if (type) el.setAttribute('type', type)
-    if (checked) el.setAttribute('checked', true)
-    return el
-  }
 
   async function taskDelete(target) {
     let row = target.closest('.row')
@@ -83,13 +76,36 @@ export default function tasks() {
 
   async function taskEdit(target) {
     let row = target.closest('.row')
-    let text = row.querySelector('.text')
-    let id = row.id
-    let data = {id}
-    let res = await ajaxDecorator('/tasks/' + id, data, "PUT")
-    if (res[0] === 'ok') {
-      alert(res[1])
-      row.remove()
+    let task = taskDTO(row)
+    // debugger
+    popup(taskPopupContent(task))
+    // let res = await ajaxDecorator('/tasks/' + task.id, task, "PUT")
+    // if (res[0] === 'ok') {
+    //   alert(res[1])
+    //   row.remove()
+    // }
+  }
+
+  function taskPopupContent(task) {
+    let content = createEl('div', 'content', task.id)
+
+    let todo = createEl('input', 'todo', null, task.todo, 'text')
+    let date = createEl('input', 'date', null, task.date,'date')
+    let check = createEl('input', 'important', null, '!','checkbox')
+
+    content.append(todo)
+    content.append(date)
+    content.append(check)
+    // debugger
+    return content
+  }
+
+  function taskDTO(row) {
+    return {
+      id: row.id,
+      todo: row.querySelector('.todo').innerText,
+      important: row.querySelector('.important').innerText,
+      date: row.querySelector('.date').innerText,
     }
   }
 }

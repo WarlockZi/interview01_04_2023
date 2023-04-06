@@ -23,6 +23,20 @@ class TaskController extends AppController
 		$this->view->render('index', $data);;
 	}
 
+	public function edit()
+	{
+		if (!$this->di->get('auth')->authorized()) {
+			\header("Location:/");
+		}
+		$tasks = Task::all();
+		$content = Common::getFileContent('Tasks/index', compact('tasks'));
+		$data = [
+			'header' => Header::make('guest', $this->di->get('auth')),
+			'content' => $content,
+		];
+		$this->view->render('index', $data);;
+	}
+
 	public function create()
 	{
 		$post = json_decode($_POST['param']);
