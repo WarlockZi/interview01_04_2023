@@ -11,22 +11,25 @@ export default function poppup(content) {
 
 
   let body = document.querySelector('body')
-  let popup = createEl('div','popup')
-  let close = createEl('div','close',null, 'X')
-  // let html = createEl('div','content',null)
-  let submit = createEl('button',null, null, 'Сохранить', 'submit')
+  let overlay = createEl('div', 'overlay')
+  let popup = createEl('div', 'popup')
+  let close = createEl('div', 'close', null, 'X')
+  let submit = createEl('button', null, null, 'Сохранить', 'submit')
 
-  // html.append(content)
 
+  overlay.append(popup)
   popup.append(close)
   popup.append(content)
-  // popup.append(html)
   popup.append(submit)
-  body.append(popup)
+  body.append(overlay)
 
-  close.addEventListener('click',function (e) {
-    e.target.closest('.popup').remove()
+  close.addEventListener('click', function (e) {
+    e.target.closest('.overlay').remove()
   })
-
+  overlay.addEventListener('click', function ({target}) {
+    if (target.classList.contains('overlay')) {
+      target.remove()
+    }
+  })
 
 }

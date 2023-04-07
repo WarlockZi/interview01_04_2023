@@ -11,7 +11,7 @@
 	<div class="tasks">
 		 <? foreach ($tasks as $task): ?>
 		  <div class="row" id="<?= $task['id'] ?>">
-			  <div class="important"><?= $task['important']; ?></div>
+			  <div class="important"><?= $task['important']?"!":""; ?></div>
 			  <div class="date"><?= $task['date']; ?></div>
 			  <div class="todo"><?= $task['todo']; ?></div>
 			  <div class="buttons">

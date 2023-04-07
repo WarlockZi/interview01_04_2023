@@ -62,7 +62,7 @@
 
       &[type='checkbox'] {
         align-self: center;
-        height: 40%;
+        height: 30%;
         width: 77px;
       }
 
@@ -73,7 +73,7 @@
     }
 
     button {
-      @include close_button;
+      @include button;
       position: relative;
       top: 0;
       right: 0;

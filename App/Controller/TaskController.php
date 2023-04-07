@@ -40,9 +40,13 @@ class TaskController extends AppController
 	public function create()
 	{
 		$post = json_decode($_POST['param']);
+
+		$important = $post->check;
+		$date = $post->date;
 		$todo = $post->todo;
 		$userId = $this->di->get('auth')->user()['id'];
-		$params = [$todo,$userId];
+
+		$params = [$important,$date,$todo,$userId];
 		$id = Task::create($params);
 		if ($id) {
 			exit(json_encode(['ok',$id]));

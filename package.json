@@ -31,7 +31,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "D": "^1.0.0",
+    "fecha": "^4.2.3",
     "file-loader": "^6.2.0",
     "url-loader": "^4.1.1"
   }

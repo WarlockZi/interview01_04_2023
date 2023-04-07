@@ -37,6 +37,7 @@ $color-a: #3d3d3d;
   border-radius: 10px;
   opacity: .2;
   transition: all 0.2s ease-in-out;
+  user-select: none;
   &:hover {
     opacity: .5;
   }
