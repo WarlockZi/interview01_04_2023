@@ -10,5 +10,5 @@ $this->router->add('logout', 				'/auth/logout', 	'AuthController:logout');
 
 $this->router->add('task', 			'/tasks', 			'TaskController:index');
 $this->router->add('task_post', '/tasks', 			'TaskController:create', 'POST');
-$this->router->add('task_put', 	'/tasks/(id:int)', 'TaskController:edit', 'PUT');
+$this->router->add('task_put', 	'/tasks/(id:int)', 'TaskController:edit', 'POST');
 $this->router->add('task_del', 	'/tasks/(id:int)', 'TaskController:delete', 'DELETE');

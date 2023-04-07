@@ -12,7 +12,7 @@
   .popup {
     @include transparent_form;
     width: clamp(200px, 50%, 600px);
-    height: clamp(300px, 50%, 600px);
+    height:  clamp(320px, 30%, 350px);
     background: #ffffff;
     overflow: initial;
     margin: 40px auto;
@@ -43,6 +43,7 @@
         @include input;
         //margin: 0;
         width: 100%;
+        color:black;
       }
 
       input[type="date"] {

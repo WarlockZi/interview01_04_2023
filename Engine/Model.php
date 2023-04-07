@@ -76,11 +76,24 @@ class Model
 	{
 		$instance = new static();
 		$table = $instance->getTable();
-		$sql = "INSERT INTO `{$table}` (`important`,`date`,`todo`,`user_id`) VALUES (?,?,?,?)";
+		$sql = "INSERT INTO `{$table}` SET (`important`,`date`,`todo`,`user_id`) VALUES (?,?,?,?)";
 		$instance->db->execute($sql, $arr);
 		$id = $instance->db->lastId();
 		return $id;
 
+	}
+
+	public static function update($arr)
+	{
+		$instance = new static();
+		$table = $instance->getTable();
+		$sql = "UPDATE `{$table}` SET `important`=?,`date`=?,`todo`=?,`user_id`=? WHERE `id`=?";
+		try {
+			$instance->db->execute($sql, $arr);
+			return $arr;
+		} catch (\Exception $exception) {
+			return $exception->getMessage();
+		}
 	}
 
 	public function getTable()

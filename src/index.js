@@ -1,9 +1,9 @@
 import './index.scss';
 import validate from './validator/validator';
-import tasks from './tasks/tasks';
+import index from './tasks/index';
 import auth from './auth';
 
-tasks()
+index()
 auth()
 
 
