@@ -12,7 +12,7 @@ export default class newTask {
     this.date = this.dateEl.value
 
     this.checkEl = row.querySelector("input[type='checkbox']")
-    this.check = this.checkEl.checked
+    this.check = +this.checkEl.checked
 
     this.addBtn = row.querySelector('button')
     if (this.addBtn) {
@@ -23,6 +23,7 @@ export default class newTask {
   }
 
   async save({target}) {
+    debugger
     let row = target.closest('.new-task')
 
     let newTask = new this.constructor(row)

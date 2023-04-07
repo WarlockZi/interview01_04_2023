@@ -76,7 +76,7 @@ class Model
 	{
 		$instance = new static();
 		$table = $instance->getTable();
-		$sql = "INSERT INTO `{$table}` SET (`important`,`date`,`todo`,`user_id`) VALUES (?,?,?,?)";
+		$sql = "INSERT INTO `{$table}` (`important`,`date`,`todo`,`user_id`) VALUES (?,?,?,?)";
 		$instance->db->execute($sql, $arr);
 		$id = $instance->db->lastId();
 		return $id;
