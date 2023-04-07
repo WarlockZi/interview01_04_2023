@@ -30,7 +30,7 @@ export default class Task {
     let res = await ajaxDecorator('/tasks/' + this.id, data, "DELETE")
     if (res[0] === 'ok') {
       alert(res[1])
-      row.remove()
+      this.row.remove()
     }
   }
 

@@ -5,6 +5,7 @@ export default class Tasks{
     this.tasks = tasks
     tasks.addEventListener('click', function ({target}) {
       if (target.classList.contains('del')){
+        debugger
         let task = new Task(target)
         task.del()
       } else if (target.classList.contains('edit')){
